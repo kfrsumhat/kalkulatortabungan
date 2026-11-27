@@ -5,6 +5,7 @@ import { clearDraft, loadDraft, loadHistory, pushHistory, saveDraft, type Versio
 import { looksLikeConfig } from "../lib/validate.ts";
 
 const DEFAULT = bundled as unknown as Config;
+const hasAdminSession = () => { try { return sessionStorage.getItem("sim.admin.ok") === "1"; } catch { return false; } };
 const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
 
 interface Ctx {
@@ -25,18 +26,24 @@ export const useConfig = () => { const c = useContext(Cx); if (!c) throw new Err
 
 export function ConfigProvider({ children }: { children: ReactNode }) {
   const [published, setPublished] = useState<Config>(DEFAULT);
-  const [config, setCfg] = useState<Config>(() => loadDraft() ?? DEFAULT);
+  const [config, setCfg] = useState<Config>(DEFAULT);
   const [history, setHistory] = useState<Version[]>(() => loadHistory());
 
   // muat config.json saat runtime (sumber data produksi)
   useEffect(() => {
     const ac = new AbortController();
-    fetch("config.json", { cache: "no-store", signal: ac.signal })
+    const configUrl = new URL("config.json", document.baseURI);
+    configUrl.searchParams.set("_", String(Date.now()));
+    fetch(configUrl.toString(), { cache: "no-store", signal: ac.signal })
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((j) => {
         if (!looksLikeConfig(j)) return;
         setPublished(j);
-        if (!loadDraft()) setCfg(j);
+        // Draft hanya dipertahankan pada browser admin yang sedang login.
+        // Pengunjung umum selalu memakai config.json terbaru dari server.
+        const draft = hasAdminSession() ? loadDraft() : null;
+        if (draft) setCfg(draft);
+        else { clearDraft(); setCfg(j); }
       })
       .catch(() => { /* offline: pakai salinan bawaan */ });
     return () => ac.abort();
