@@ -1,2 +1,2 @@
-/** Menu Admin selalu tampil (juga di situs publik). Akses tetap dijaga kata sandi lokal (PBKDF2) di AdminDrawer. */
-export const ADMIN_ENABLED = true;
+/** Menu Admin dinonaktifkan pada situs publik. Aktifkan sementara hanya saat pengelolaan internal diperlukan. */
+export const ADMIN_ENABLED = false;
