@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "unit": "KF RSU MHAT",
+  "bank": "Bank Jambi",
+  "heroTitle": "Simulasi Tabungan - {unit}",
+  "tagline": "\"Simpan Aman, Masa Depan Nyaman\"",
+  "asOf": "2026-11-24",
+  "logo": "logo.png",
+  "cover": "",
+  "seo": {
+    "title": "Simulasi Tabungan - KF RSU MHAT",
+    "description": "Simulasi bunga, bagi hasil, dan hadiah penempatan dana Bank Jambi KF RSU MHAT. Hitung estimasi bersih setelah pajak."
+  },
+  "theme": {
+    "primary": "#7a1c2e",
+    "accent": "#c8963e",
+    "tint": "#f9ecee",
+    "ink": "#2a1a1d",
+    "mut": "#6e5a5e",
+    "bd": "#e8d8db",
+    "bg": "#faf5f5"
+  },
+  "anim": {
+    "smoothScroll": true,
+    "splitTitles": true
+  },
+  "wa": "082367209789",
+  "waTanya": "Halo {bank} {unit}, saya sudah mencoba simulasi {produk}: nominal {nominal}, {periode}, estimasi bersih {estimasi}. Saya ingin bertanya mengenai produk ini.",
+  "waDaftar": "Halo {bank} {unit}, saya sudah mencoba simulasi {produk}: nominal {nominal}, {periode}, estimasi bersih {estimasi}. Saya ingin tahu cara membukanya / mendaftar.",
+  "pajak": 20,
+  "cs": "Layanan pengaduan: hubungi kantor unit kami atau call center resmi bank.",
+  "ojk": "OJK: telepon 157 atau WhatsApp 081-157-157-157.",
+  "extra": "",
+  "texts": {
+    "disclaimer": "Hasil simulasi adalah ilustrasi dan dapat berubah sesuai ketentuan produk yang berlaku saat penempatan dana. Simulasi ini bukan penawaran atau jaminan hasil.",
+    "privacy": "Dengan menekan tombol ini, Anda mengirim ringkasan simulasi ke WhatsApp Business kami atas keinginan Anda, dan nomor WhatsApp Anda akan terlihat oleh kami untuk menanggapi pertanyaan Anda. Perhitungan di halaman ini berjalan di perangkat Anda dan tidak disimpan atau dikirim ke server.",
+    "hitung30": "Hari dihitung {hb} hari per bulan, 365 hari per tahun.",
+    "hitungCal": "Hari dihitung kalender (365 hari per tahun).",
+    "hitungDu": "Hari dihitung per tanggal (jumlah hari ÷ 365).",
+    "hitungSilah": "Jumlah hari mengikuti tabel tenor SILAH (365 hari per tahun)."
+  },
+  "info": [
+    "**Suku bunga dapat berubah** sewaktu-waktu sesuai kebijakan {bank} dan ketentuan yang berlaku. Tarif pada simulasi ini berlaku per {asOf}.",
+    "**Hasil simulasi adalah ilustrasi** dan dapat berubah sesuai ketentuan produk yang berlaku saat penempatan dana. Simulasi ini bukan penawaran atau jaminan hasil.",
+    "Asumsi perhitungan: pajak {pajak}% atas bunga/bagi hasil/hadiah. {hitung}",
+    "**{bank} terdaftar dan diawasi oleh Otoritas Jasa Keuangan (OJK).**",
+    "**Waspada penipuan.** {bank} tidak pernah meminta PIN, OTP, kata sandi, atau nomor kartu melalui chat maupun telepon. Pastikan Anda hanya menghubungi nomor WhatsApp resmi kantor unit ini."
+  ],
+  "products": [
+    {
+      "id": "dep",
+      "type": "simple",
+      "active": true,
+      "icon": "🏦",
+      "nm": "Deposito",
+      "sub": "Bunga tetap",
+      "desc": "Simpanan berjangka dengan bunga tetap sesuai jangka waktu yang Anda pilih.",
+      "rate": 3.5,
+      "basis": "30",
+      "hb": 30,
+      "tenor": [
+        1,
+        3,
+        6,
+        12,
+        24
+      ],
+      "dayMap": {},
+      "quick": [
+        10000000,
+        50000000,
+        100000000,
+        500000000,
+        1000000000
+      ],
+      "notes": [
+        "Suku bunga dapat berubah sewaktu-waktu."
+      ],
+      "terms": [],
+      "lblRate": "Suku bunga",
+      "lblGross": "Bunga kotor",
+      "lblNet": "Bunga bersih diterima",
+      "tiers": [],
+      "tab": 0,
+      "end": "2099-12-31",
+      "minDays": 30,
+      "promoTitle": "",
+      "promoBody": "",
+      "prime": 0
+    },
+    {
+      "id": "syr",
+      "type": "simple",
+      "active": true,
+      "icon": "🌙",
+      "nm": "Deposito Syariah",
+      "sub": "Bagi hasil",
+      "desc": "Simpanan berjangka syariah dengan bagi hasil indikatif sesuai jangka waktu.",
+      "rate": 4.3,
+      "basis": "30",
+      "hb": 30,
+      "tenor": [
+        1,
+        3,
+        6,
+        12
+      ],
+      "dayMap": {},
+      "quick": [
+        10000000,
+        50000000,
+        100000000,
+        500000000,
+        1000000000
+      ],
+      "notes": [
+        "Bagi hasil bersifat indikatif dan dapat berubah sewaktu-waktu sesuai ketentuan."
+      ],
+      "terms": [],
+      "lblRate": "",
+      "lblGross": "Bagi hasil kotor",
+      "lblNet": "Bagi hasil bersih diterima",
+      "tiers": [],
+      "tab": 0,
+      "end": "2099-12-31",
+      "minDays": 30,
+      "promoTitle": "",
+      "promoBody": "",
+      "prime": 0
+    },
+    {
+      "id": "du",
+      "type": "du",
+      "active": true,
+      "icon": "🎁",
+      "nm": "Double Untung",
+      "sub": "Hadiah + bunga tabungan",
+      "desc": "Hadiah mengikuti tier saldo, ditambah bunga tabungan, dihitung per hari selama periode promo.",
+      "rate": 0,
+      "basis": "30",
+      "hb": 30,
+      "tenor": [
+        1,
+        3,
+        6,
+        12
+      ],
+      "dayMap": {},
+      "quick": [
+        10000000,
+        50000000,
+        100000000,
+        500000000,
+        1000000000
+      ],
+      "notes": [
+        "Persentase hadiah mengikuti tier saldo tabungan dan giro non Pemda (otomatis dari nominal).",
+        "Hadiah dan bunga tabungan dihitung per hari, sesuai tanggal penempatan sampai tanggal jatuh tempo (jumlah hari ÷ 365)."
+      ],
+      "terms": [
+        "Periode promo sampai {promoEnd}. Minimal penempatan {minDays} hari.",
+        "Hadiah mengikuti tier saldo: {tiers} per tahun.",
+        "Hadiah dan bunga tabungan ({tab}) dikenakan pajak sesuai ketentuan. Hadiah tidak berlaku untuk saldo di bawah {minNominal}."
+      ],
+      "lblRate": "",
+      "lblGross": "",
+      "lblNet": "",
+      "tiers": [
+        [
+          10000000,
+          3.5
+        ],
+        [
+          50000000,
+          4
+        ],
+        [
+          500000000,
+          4.5
+        ],
+        [
+          1000000000,
+          5
+        ],
+        [
+          5000000000,
+          5.25
+        ]
+      ],
+      "tab": 0.85,
+      "end": "2027-01-31",
+      "minDays": 30,
+      "promoTitle": "🎁 Promo berlaku sampai {promoEnd}",
+      "promoBody": "Sisa {sisa} hari. Penempatan dilakukan sebelum periode berakhir.",
+      "prime": 0
+    },
+    {
+      "id": "silah",
+      "type": "silah",
+      "active": true,
+      "icon": "💎",
+      "nm": "SILAH",
+      "sub": "Hadiah langsung",
+      "desc": "Hadiah langsung dengan jumlah hari mengikuti tabel tenor SILAH.",
+      "rate": 3.75,
+      "basis": "30",
+      "hb": 30,
+      "tenor": [
+        1,
+        3,
+        6,
+        12,
+        24,
+        36,
+        48,
+        60
+      ],
+      "dayMap": {
+        "1": 30,
+        "3": 90,
+        "6": 182,
+        "12": 365,
+        "24": 730,
+        "36": 1095,
+        "48": 1460,
+        "60": 1825
+      },
+      "quick": [
+        10000000,
+        50000000,
+        100000000,
+        500000000,
+        1000000000
+      ],
+      "notes": [],
+      "terms": [],
+      "lblRate": "",
+      "lblGross": "",
+      "lblNet": "",
+      "tiers": [],
+      "tab": 0,
+      "end": "2099-12-31",
+      "minDays": 30,
+      "promoTitle": "",
+      "promoBody": "",
+      "prime": 0.25
+    }
+  ],
+  "admin": null
+}
